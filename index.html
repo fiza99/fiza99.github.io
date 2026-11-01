@@ -1,0 +1,830 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="description"
+        content="Fiza Kanwal | Software Engineering Researcher,
+        Visiting Lecturer, and Computer Science Research Portfolio">
+
+  <title>Fiza Kanwal | Research Portfolio</title>
+
+  <style>
+    :root {
+      --bg: #0b1120;
+      --surface: #172238;
+      --border: #30415b;
+      --text: #f1f5f9;
+      --muted: #a5b4c8;
+      --accent: #38bdf8;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.7;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover { text-decoration: underline; }
+
+    a:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 4px;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 22px;
+      padding: 18px;
+      background: #111c30;
+      border-bottom: 1px solid var(--border);
+    }
+
+    nav a {
+      color: var(--text);
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    nav a:hover { color: var(--accent); }
+
+    header {
+      text-align: center;
+      padding: 100px 20px 85px;
+      background: linear-gradient(
+        135deg, #172554, #0f172a, #0b1120
+      );
+    }
+
+    header h1 {
+      font-size: clamp(36px, 6vw, 58px);
+      margin: 0;
+    }
+
+    header h2 {
+      color: var(--accent);
+      font-size: 21px;
+      font-weight: normal;
+      margin: 15px 0;
+    }
+
+    header p {
+      max-width: 700px;
+      margin: 15px auto;
+      color: var(--muted);
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 24px;
+      margin: 10px 5px;
+      background: var(--accent);
+      color: #071422;
+      border-radius: 8px;
+      font-weight: bold;
+    }
+
+    .btn:hover {
+      background: #7dd3fc;
+      text-decoration: none;
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 1px solid var(--accent);
+      color: var(--accent);
+    }
+
+    section {
+      max-width: 1100px;
+      margin: auto;
+      padding: 65px 24px;
+    }
+
+    .section-title {
+      font-size: 30px;
+      padding-bottom: 12px;
+      border-bottom: 2px solid var(--accent);
+      margin: 0 0 25px;
+    }
+
+    .about-text {
+      color: var(--muted);
+      font-size: 17px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 25px;
+      min-width: 0;
+      overflow-wrap: anywhere;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: var(--accent);
+    }
+
+    .card h3 {
+      color: var(--accent);
+      margin-top: 0;
+      font-size: 19px;
+    }
+
+    .card p {
+      color: var(--muted);
+    }
+
+    .badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin-top: 15px;
+    }
+
+    .badge {
+      padding: 6px 11px;
+      background: #243550;
+      border: 1px solid #3a506e;
+      border-radius: 7px;
+      font-size: 13px;
+      color: #e2e8f0;
+    }
+
+    .project-type {
+      display: inline-block;
+      background: #173651;
+      color: #7dd3fc;
+      padding: 5px 12px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: bold;
+      margin-bottom: 15px;
+    }
+
+    .project-card ul {
+      padding-left: 20px;
+      color: var(--muted);
+    }
+
+    .project-card li {
+      margin-bottom: 10px;
+    }
+
+    .project-card h4 {
+      margin-bottom: 8px;
+    }
+
+    .institution {
+      font-style: italic;
+      font-size: 14px;
+    }
+
+    .project-links {
+      margin-top: 22px;
+    }
+
+    .project-links a {
+      display: inline-block;
+      padding: 9px 15px;
+      background: #243550;
+      border: 1px solid var(--border);
+      border-radius: 7px;
+      margin: 5px 5px 5px 0;
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    .project-links a:hover {
+      border-color: var(--accent);
+    }
+
+    .metric {
+      margin: 18px 0;
+      padding: 18px;
+      background: #102e42;
+      border-radius: 10px;
+    }
+
+    .metric strong {
+      font-size: 28px;
+      color: var(--accent);
+    }
+
+    .metric small {
+      display: block;
+      color: var(--muted);
+    }
+
+    .contact-links {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      background: #111c30;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+    }
+
+    @media (max-width: 800px) {
+      .grid { grid-template-columns: 1fr; }
+
+      header { padding: 70px 20px; }
+
+      section { padding: 45px 18px; }
+
+      .section-title { font-size: 26px; }
+
+      nav { gap: 12px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .card { transition: none; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVIGATION -->
+  <nav aria-label="Main navigation">
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#research">Research</a>
+    <a href="#education">Education</a>
+    <a href="#experience">Experience</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#github">GitHub</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <!-- HOME -->
+  <header id="home">
+    <h1>Fiza Kanwal</h1>
+
+    <h2>
+      Software Engineering Researcher |
+      Visiting Lecturer
+    </h2>
+
+    <p>
+      MPhil Computer Science |
+      BS Information Technology
+    </p>
+
+    <p>
+      Exploring software engineering,
+      software quality, and intelligent
+      techniques for software analysis.
+    </p>
+
+    <a class="btn" href="#projects">
+      Explore My Projects
+    </a>
+
+    <a class="btn btn-outline"
+       href="https://github.com/fiza99"
+       target="_blank"
+       rel="noopener noreferrer">
+      GitHub Profile
+    </a>
+  </header>
+
+  <main>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <h2 class="section-title">About Me</h2>
+
+      <p class="about-text">
+        I am a researcher and Visiting Lecturer
+        with an MPhil in Computer Science and
+        a Bachelor's degree in Information Technology.
+      </p>
+
+      <p class="about-text">
+        My work focuses on analyzing software
+        quality, understanding development
+        challenges, and exploring automated
+        techniques for software analysis.
+      </p>
+
+      <p class="about-text">
+        I am particularly interested in applying
+        machine learning, natural language
+        processing, and information retrieval
+        techniques to software engineering problems.
+        Alongside research, I enjoy teaching and
+        guiding students in computer science.
+      </p>
+    </section>
+
+    <!-- RESEARCH INTERESTS -->
+    <section id="research">
+      <h2 class="section-title">Research Interests</h2>
+
+      <div class="grid">
+
+        <div class="card">
+          <h3>Software Engineering</h3>
+          <p>
+            Software maintenance, program comprehension,
+            feature location, and software evolution.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Software Quality & Analysis</h3>
+          <p>
+            Static source code analysis, code smells,
+            software defects, and quality assessment.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>AI for Software Engineering</h3>
+          <p>
+            NLP, machine learning, semantic similarity,
+            and intelligent software analysis techniques.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Digital Twin Systems</h3>
+          <p>
+            Software quality, development challenges,
+            and software engineering practices
+            in digital twin frameworks.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section id="education">
+      <h2 class="section-title">Education</h2>
+
+      <div class="grid">
+
+        <div class="card">
+          <h3>MPhil in Computer Science</h3>
+          <p>
+            Punjab University College of
+            Information Technology (PUCIT),
+            University of the Punjab, Lahore
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>BS in Information Technology</h3>
+          <p>GC Women University, Sialkot</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ACADEMIC EXPERIENCE -->
+    <section id="experience">
+      <h2 class="section-title">Academic Experience</h2>
+
+      <div class="card">
+        <h3>Visiting Lecturer</h3>
+
+        <p>
+          Teaching computer science subjects
+          and supporting students in programming,
+          software development, and technical
+          problem-solving.
+        </p>
+      </div>
+    </section>
+
+    <!-- TECHNICAL SKILLS -->
+    <section id="skills">
+      <h2 class="section-title">Technical Skills</h2>
+
+      <div class="grid">
+
+        <div class="card">
+          <h3>Programming Languages</h3>
+          <div class="badges">
+            <span class="badge">Python</span>
+            <span class="badge">Java</span>
+            <span class="badge">SQL</span>
+            <span class="badge">JavaScript</span>
+            <span class="badge">HTML</span>
+            <span class="badge">CSS</span>
+            <span class="badge">C</span>
+            <span class="badge">C++</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>AI & Machine Learning</h3>
+          <div class="badges">
+            <span class="badge">Machine Learning</span>
+            <span class="badge">NLP</span>
+            <span class="badge">Scikit-learn</span>
+            <span class="badge">PyTorch</span>
+            <span class="badge">CodeBERT</span>
+            <span class="badge">Topic Modeling</span>
+            <span class="badge">LDA</span>
+            <span class="badge">LSI</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Software Engineering</h3>
+          <div class="badges">
+            <span class="badge">Object-Oriented Programming</span>
+            <span class="badge">Software Testing</span>
+            <span class="badge">Version Control</span>
+            <span class="badge">Git</span>
+            <span class="badge">GitHub</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Code Quality & Static Analysis</h3>
+          <div class="badges">
+            <span class="badge">PMD</span>
+            <span class="badge">SonarQube</span>
+            <span class="badge">Semgrep</span>
+            <span class="badge">DeepSource</span>
+            <span class="badge">Code Smell Detection</span>
+            <span class="badge">Bug Detection</span>
+            <span class="badge">Code Clone Detection</span>
+            <span class="badge">Static Code Analysis</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Information Retrieval & Research</h3>
+          <div class="badges">
+            <span class="badge">TF-IDF</span>
+            <span class="badge">BM25</span>
+            <span class="badge">Text Mining</span>
+            <span class="badge">Text Embeddings</span>
+            <span class="badge">Semantic Analysis</span>
+            <span class="badge">Syntactic Analysis</span>
+            <span class="badge">Feature Location</span>
+            <span class="badge">Clustering</span>
+            <span class="badge">Statistical Analysis</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Data Analysis & Visualization</h3>
+          <div class="badges">
+            <span class="badge">Pandas</span>
+            <span class="badge">NumPy</span>
+            <span class="badge">Matplotlib</span>
+            <span class="badge">Jupyter Notebook</span>
+            <span class="badge">Data Preprocessing</span>
+            <span class="badge">Microsoft Excel</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ACADEMIC PROJECTS -->
+    <section id="projects">
+      <h2 class="section-title">
+        Research & Academic Projects
+      </h2>
+
+      <p class="about-text">
+        Selected research and academic projects
+        in software engineering and computer vision.
+      </p>
+
+      <div class="grid">
+
+        <!-- PROJECT 1 -->
+        <article class="card project-card">
+          <span class="project-type">MPhil Thesis</span>
+
+          <h3>Flaws Detection in Digital Twin</h3>
+
+          <p class="institution">
+            Punjab University College of
+            Information Technology (PUCIT), Lahore
+          </p>
+
+          <p>
+            Investigated software quality issues
+            and developer challenges in Digital
+            Twin systems through source code
+            analysis and mining developer discussions.
+          </p>
+
+          <h4>Key Contributions</h4>
+          <ul>
+            <li>
+              Investigated code smells in Digital
+              Twin framework repositories.
+            </li>
+            <li>
+              Analyzed Stack Overflow discussions
+              to identify and categorize Digital
+              Twin-related topics.
+            </li>
+            <li>
+              Developed a taxonomy of Digital Twin
+              domains based on extracted topics.
+            </li>
+            <li>
+              Applied Mining Software Repositories
+              (MSR) and NLP techniques to analyze
+              repository and textual data.
+            </li>
+          </ul>
+
+          <div class="badges">
+            <span class="badge">Digital Twins</span>
+            <span class="badge">Code Quality</span>
+            <span class="badge">MSR</span>
+            <span class="badge">NLP</span>
+            <span class="badge">Topic Modeling</span>
+            <span class="badge">Taxonomy Development</span>
+          </div>
+
+          <!--
+          When you upload this project's code,
+          add a repository link here.
+          Example:
+
+          <div class="project-links">
+            <a href="https://github.com/fiza99/REPOSITORY-NAME"
+               target="_blank"
+               rel="noopener noreferrer">
+              View Source Code
+            </a>
+          </div>
+
+          Replace REPOSITORY-NAME with the real name.
+          -->
+
+        </article>
+
+        <!-- PROJECT 2 -->
+        <article class="card project-card">
+          <span class="project-type">
+            Academic Term Project
+          </span>
+
+          <h3>
+            Skin Lesion Segmentation Using
+            Multi-Gradient Hair Removal
+          </h3>
+
+          <p class="institution">
+            Punjab University College of
+            Information Technology (PUCIT), Lahore
+          </p>
+
+          <p>
+            Developed a computer vision-based
+            lesion segmentation approach that
+            integrates multi-gradient hair
+            removal and image processing.
+          </p>
+
+          <h4>Key Contributions</h4>
+          <ul>
+            <li>
+              Used Sobel, Scharr, and Laplacian
+              gradient operators for hair removal.
+            </li>
+            <li>
+              Applied image inpainting to reconstruct
+              image regions affected by hair.
+            </li>
+            <li>
+              Implemented LAB color-space segmentation,
+              Otsu thresholding, and morphological
+              refinement.
+            </li>
+            <li>
+              Evaluated segmentation performance
+              using Dice Similarity Coefficient.
+            </li>
+          </ul>
+
+          <div class="metric">
+            <strong>0.8712</strong>
+            <small>
+              Dice Similarity Coefficient
+              on one demonstrated dermoscopic image
+            </small>
+          </div>
+
+          <div class="badges">
+            <span class="badge">Computer Vision</span>
+            <span class="badge">Image Processing</span>
+            <span class="badge">Segmentation</span>
+            <span class="badge">Sobel</span>
+            <span class="badge">Scharr</span>
+            <span class="badge">Laplacian</span>
+            <span class="badge">Image Inpainting</span>
+          </div>
+
+          <!-- Add a source code link here when ready -->
+
+        </article>
+
+      </div>
+    </section>
+
+    <!-- GITHUB REPOSITORIES -->
+    <section id="github">
+      <h2 class="section-title">My GitHub Repositories</h2>
+
+      <p class="about-text">
+        Explore my publicly available source code,
+        research implementations, and technical work.
+        This section automatically loads my original,
+        public GitHub repositories.
+      </p>
+
+      <div id="github-projects"
+           class="grid"
+           aria-live="polite">
+        <p class="about-text">
+          Loading GitHub repositories...
+        </p>
+      </div>
+
+      <div style="text-align:center; margin-top:30px;">
+        <a class="btn"
+           href="https://github.com/fiza99?tab=repositories"
+           target="_blank"
+           rel="noopener noreferrer">
+          View All GitHub Repositories
+        </a>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <h2 class="section-title">Contact & Connect</h2>
+
+      <p class="about-text">
+        I welcome opportunities for academic
+        research collaboration, technical
+        discussion, and software engineering projects.
+      </p>
+
+      <div class="project-links">
+        <a href="https://github.com/fiza99"
+           target="_blank"
+           rel="noopener noreferrer">
+          GitHub Profile
+        </a>
+
+        <!-- Add email and LinkedIn when ready -->
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2026 Fiza Kanwal. All Rights Reserved.</p>
+    <p>
+      Built with HTML, CSS & JavaScript |
+      Hosted on GitHub Pages
+    </p>
+  </footer>
+
+  <!-- LOAD PUBLIC GITHUB REPOSITORIES -->
+  <script>
+    const githubUsername = "fiza99";
+    const container =
+      document.getElementById("github-projects");
+
+    async function loadGitHubProjects() {
+      try {
+        const response = await fetch(
+          `https://api.github.com/users/${githubUsername}/repos?per_page=100&sort=updated`
+        );
+
+        if (!response.ok) {
+          throw new Error("GitHub API unavailable");
+        }
+
+        const repos = await response.json();
+
+        // Show original public repositories only.
+        // Exclude forks and the portfolio website.
+        const originalRepos = repos
+          .filter(repo =>
+            !repo.fork &&
+            !repo.private &&
+            repo.name.toLowerCase() !==
+              `${githubUsername}.github.io`.toLowerCase()
+          )
+          .slice(0, 9);
+
+        container.replaceChildren();
+
+        if (originalRepos.length === 0) {
+          const message = document.createElement("p");
+          message.className = "about-text";
+          message.textContent =
+            "Original public repositories will appear here as they are added.";
+          container.appendChild(message);
+          return;
+        }
+
+        originalRepos.forEach(repo => {
+          const card = document.createElement("article");
+          card.className = "card";
+
+          const title = document.createElement("h3");
+          title.textContent = repo.name;
+
+          const description = document.createElement("p");
+          description.textContent =
+            repo.description ||
+            "Explore this repository on GitHub.";
+
+          const badges = document.createElement("div");
+          badges.className = "badges";
+
+          if (repo.language) {
+            const language = document.createElement("span");
+            language.className = "badge";
+            language.textContent = repo.language;
+            badges.appendChild(language);
+          }
+
+          const links = document.createElement("div");
+          links.className = "project-links";
+
+          const source = document.createElement("a");
+          source.href = repo.html_url;
+          source.target = "_blank";
+          source.rel = "noopener noreferrer";
+          source.textContent = "View Repository";
+
+          links.appendChild(source);
+
+          card.appendChild(title);
+          card.appendChild(description);
+          card.appendChild(badges);
+          card.appendChild(links);
+
+          container.appendChild(card);
+        });
+
+      } catch (error) {
+        container.replaceChildren();
+
+        const message = document.createElement("p");
+        message.className = "about-text";
+        message.textContent =
+          "Repositories could not be loaded right now. " +
+          "Use the button below to browse GitHub directly.";
+
+        container.appendChild(message);
+      }
+    }
+
+    loadGitHubProjects();
+  </script>
+
+</body>
+</html>
