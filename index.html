@@ -382,7 +382,7 @@
         <div class="card">
           <h3>Digital Twin Systems</h3>
           <p>
-            Software quality, development challenges,
+            Flaw detection, development challenges,
             and software engineering practices
             in digital twin frameworks.
           </p>
@@ -402,13 +402,13 @@
           <p>
             Punjab University College of
             Information Technology (PUCIT),
-            University of the Punjab, Lahore
+            University of the Punjab, Lahore, Pakistan
           </p>
         </div>
 
         <div class="card">
           <h3>BS in Information Technology</h3>
-          <p>GC Women University, Sialkot</p>
+          <p>GC Women University, Sialkot, </p>
         </div>
 
       </div>
@@ -665,6 +665,165 @@
 
         </article>
 
+    
+<!-- PROJECT 3: HUMAN VS AI CODE QUALITY -->
+<article class="card project-card"
+         style="grid-column: 1 / -1;">
+
+  <span class="project-type">
+    Empirical Software Engineering Research
+  </span>
+
+  <h3>
+    Static Code Quality Analysis of
+    Human-Written vs AI-Rewritten Java Code
+  </h3>
+
+  <p>
+    <strong>Research Area:</strong>
+    Software Engineering, Software Quality,
+    AI-Generated Code, and Static Program Analysis.
+  </p>
+
+  <!-- OVERVIEW -->
+  <h4>Project Overview</h4>
+
+  <p>
+    Conducted a large-scale empirical study to
+    investigate static code quality differences
+    between human-written Java programs and their
+    AI-rewritten counterparts. The research examines
+    how AI-based code rewriting affects coding
+    practices, maintainability-related issues,
+    and static-analysis rule violations.
+  </p>
+
+  <!-- METHODOLOGY -->
+  <h4>Research Methodology</h4>
+
+  <ul>
+    <li>
+      Analyzed the GPT-Java-GCJ-Dataset containing
+      human-written Java programs and corresponding
+      GPT-4o-rewritten implementations.
+    </li>
+
+    <li>
+      Applied PMD 7.28.0 to detect code smells,
+      coding-practice violations, and selected
+      maintainability-related issues.
+    </li>
+
+    <li>
+      Developed a Python-based automation pipeline
+      for dataset processing, file matching,
+      batch-based static analysis, and report generation.
+    </li>
+
+    <li>
+      Implemented filename-based matching to identify
+      corresponding human and AI code versions
+      for paired comparisons.
+    </li>
+
+    <li>
+      Measured PMD violations, source-code size,
+      violation density, and differences between
+      corresponding implementations.
+    </li>
+
+    <li>
+      Added processing-error tracking to exclude
+      incomplete analysis results from the
+      primary matched-pair comparison.
+    </li>
+  </ul>
+
+  <!-- RESULTS -->
+  <h4>Experimental Results</h4>
+
+  <ul>
+    <li>
+      <strong>76,088 Java files analyzed:</strong>
+      58,523 human-written and 17,565 AI-rewritten.
+    </li>
+
+    <li>
+      <strong>17,059 candidate matched pairs</strong>
+      identified using filename-based matching.
+    </li>
+
+    <li>
+      <strong>17,043 valid matched pairs</strong>
+      retained after processing-error validation.
+    </li>
+
+    <li>
+      <strong>97.12% matching coverage</strong>
+      among AI-rewritten Java files.
+    </li>
+
+    <li>
+      <strong>99.91% pair retention</strong>
+      after validation, with 16 affected
+      pairs excluded.
+    </li>
+
+    <li>
+      Generated structured Excel reports containing
+      file-level quality metrics, PMD rule violations,
+      and comparative analysis results.
+    </li>
+  </ul>
+
+  <!-- CONTRIBUTIONS -->
+  <h4>Key Contributions</h4>
+
+  <p>
+    Developed an automated and reproducible framework
+    for large-scale Java code quality analysis.
+    The study establishes a validated paired dataset
+    and supports systematic investigation of quality
+    improvements and regressions associated with
+    AI-based code rewriting.
+  </p>
+
+  <!-- STATUS -->
+  <p>
+    <strong>Research Status:</strong>
+    Static analysis completed; further statistical
+    evaluation and additional software quality
+    measurements are in progress.
+  </p>
+
+  <!-- TECHNOLOGIES -->
+  <h4>Tools & Technologies</h4>
+
+  <div class="badges">
+    <span class="badge">Java</span>
+    <span class="badge">Python</span>
+    <span class="badge">PMD 7.28.0</span>
+    <span class="badge">Static Code Analysis</span>
+    <span class="badge">Software Quality</span>
+    <span class="badge">Code Smell Detection</span>
+    <span class="badge">MSR</span>
+    <span class="badge">GitHub</span>
+    <span class="badge">Microsoft Excel</span>
+    <span class="badge">XlsxWriter</span>
+  </div>
+
+  <!-- SOURCE DATASET -->
+  <div class="project-links">
+    <a href="https://github.com/tipaek/GPT-Java-GCJ-Dataset"
+       target="_blank"
+       rel="noopener noreferrer">
+      View Source Dataset
+    </a>
+  </div>
+
+</article>
+
+        
       </div>
     </section>
 
